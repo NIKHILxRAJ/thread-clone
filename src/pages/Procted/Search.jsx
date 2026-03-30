@@ -1,9 +1,9 @@
-
+import SearchInput from "../../components/Search/SearchInput";
 
 const Search =()=>
 {
     return (
-        <>Search</>
+       <SearchInput/>
     )
 }
 export default Search;

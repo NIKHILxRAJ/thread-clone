@@ -1,29 +1,25 @@
 import Header from "./components/common/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Procted/Home"; 
-import Search from "./pages/Procted/Search"; 
-import NewThreads from "./pages/Procted/NewThreads";
-import Like from "./pages/Procted/Like";
-import User from "./pages/Procted/User";
-import Error from "./pages/Error"; 
+import Home from "./pages/Procted/Home";
+import Search from "./pages/Procted/Search";
+import Error from "./pages/Error";
 import Register from "./pages/Register";
+import { Box } from "@mui/material";
+import ProtectedLayout from "./pages/Procted/ProctedLayout";
 const App = () => {
   return (
     <>
-    <Register/>
-    {/*<BrowserRouter>
-      <Header /> 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/NewThreads" element={<NewThreads/>}/>
-        <Route path="/Like" element={<Like/>}/>
-        <Route path="/User" element={<User/>} />
-        ]
-        <Route path="*" element={<Error />} /> 
-      </Routes>
-    </BrowserRouter>
-    */}
+      <Box minHeight={"100vh"}>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<ProtectedLayout />}>
+              <Route exact path="" element={<Home />} />
+              <Route exact path="post/:id" element={<h1>Single Post</h1>} />
+              <Route exact path="search" element={<Search />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Box>
     </>
   );
 };
