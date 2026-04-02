@@ -6,6 +6,7 @@
  import { RxAvatar } from "react-icons/rx";
 import  {Link} from "react-router-dom";
 
+
 const Navbar=()=>
 {
     return(
@@ -22,22 +23,16 @@ const Navbar=()=>
                 <Link to={'/search'}>
                 <IoIosSearch  size={32}/>
                 </Link>
-               <Link to ={'/NewThreads'}>
-                <TbEdit  size={32}/>
-                </Link>
-
-                <Link to={'/Like'}>
+                <TbEdit size={32}/>
                 <CiHeart size={32}/>
-                </Link>
-
-                <Link to={'/User'}>
+                <Link to={'/profile/threads/1'}>
                 <RxAvatar size={32}/>
                 </Link>
-                
 
+                
             </Stack>
             
             </>
-    )
-}
+    );
+};
 export default Navbar;

@@ -10,6 +10,8 @@ const SearchInput = () => {
                 maxHeight: "750px",
                 boxShadow: "5px 5px 5px gray",
                 borderRadius: "15px",
+                px:2,
+                py:1,
                 my: 5,
                 mx: 'auto',
                 display: 'flex',
@@ -28,4 +30,4 @@ const SearchInput = () => {
     );
 };
 
-export default SearchInput;
+export default SearchInput; 
