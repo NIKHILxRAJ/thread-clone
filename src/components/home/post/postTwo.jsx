@@ -26,9 +26,10 @@ const PostTwo=()=>
                         Hi guys ! my self nikhil raj 
                     </Typography>
                 </Stack>
-                <img src="https://4kwallpapers.com/images/walls/thumbs_3t/19795.jpg" alt=""  loading="lazy"
+                <img src="https://instagram.fbho1-1.fna.fbcdn.net/v/t51.82787-15/611290710_18552534856018497_4243418728669008518_n.jpg?stp=dst-jpg_e35_p480x480_tt6&_nc_cat=102&ig_cache_key=MzgwNTQxODE1MTc2OTk2Nzg4MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=uwPs3qXsZdoQ7kNvwGob3Md&_nc_oc=AdoDHZoe5RP8pT6zf86qrExxIJ6gwVw7rUIJc6t6uYN7Uu4SxRixlFmqcUuBYQ8BQSXeBfMnIsvw6GSwMsYQXNF0&_nc_ad=z-m&_nc_cid=2034&_nc_zt=23&_nc_ht=instagram.fbho1-1.fna&_nc_gid=OCT82IHhdsvi74gMHMMMCw&_nc_ss=7a32e&oh=00_Af2y5rkMYjvKXndDkHiRjcm0VsTpWEGmYn57LALasAVCFg&oe=69D59A8D" alt=""  loading="lazy"
                 width={"400px"}
                 height={"auto"}/>
+                <video src="/sexy.mp4"/>
 
             </Stack>
             <Stack flexDirection={'column'}

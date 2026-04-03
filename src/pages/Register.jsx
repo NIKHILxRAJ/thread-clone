@@ -1,10 +1,43 @@
 
-import { Button, Stack, TextField, Typography } from "@mui/material";
+import { Button, Stack, TextField, Typography, useMediaQuery } from "@mui/material";
+import { useState } from "react";
 import { RxHeight } from "react-icons/rx";
 
 
 const Register=()=>
 {
+    const _700 = useMediaQuery("(min-width:700px)");
+
+    const [login , setLogin]=useState(false);
+    const [username,setUsername]= useState('');
+    const [email,setEmail]= useState('');
+    const [password,setPassword]= useState('');
+    
+    const toggleLogin=()=>
+    {
+        setLogin((pre)=>!pre);
+    }
+    const handleLogin=()=>
+    {
+        const data =
+        {
+            email,
+            password,
+        }
+        console.log(data);
+    }
+    const handleRegister=()=>
+    {
+        const data =
+        {
+            username,
+            email,
+            password,
+        };
+        console.log(data);
+        
+    }
+
     return(
         <>
             <Stack width={'100%'}
@@ -12,10 +45,10 @@ const Register=()=>
                flexDirection={'row'}
                justifyContent={"center"}
                alignItems={'center'}
-               sx={{backgroundImage:'url("/public/register-bg.webp")',
+               sx={_700 ? {backgroundImage:'url("/public/register-bg.webp")',
             backgroundSize:"100%,600px ",
             backgroundRepeat:"no-repeat"
-               }}
+               } : null }
             > 
             <Stack flexDirection={'column'}width={"40%"}gap={2}mt={20}>
                 
@@ -26,14 +59,20 @@ const Register=()=>
                 fontWeight={"bold"}
                 alignSelf={"center"}
                 >
-                    Login with E-mail
+                    {login ? "Login with email " : "Register with email"}
                 </Typography>
+                { login ? null :(
+                    
                 <TextField variant="outlined" placeholder="Enter your userName...."
-                sx={{bgcolor:"#93fbf6"}}/>
+                onChange={(e)=> setUsername(e.target.value)}
+                />
+                )}
                 <TextField variant="outlined" placeholder="Enter your E-mail...."
-                sx={{bgcolor:"#93fbf6"}}/>
+                onChange={(e)=> setEmail(e.target.value)}
+                />
                 <TextField variant="outlined" placeholder="Enter your Password...."
-                sx={{bgcolor:"#93fbf6"}}/>
+                onChange={(e)=> setPassword(e.target.value)}
+                />
                <Button size="large" 
                sx={{
                 width:"100%",
@@ -46,16 +85,26 @@ const Register=()=>
                     bgcolor:"blue",
                     cursor:"pointer",
                 }
-               }}> SIGN -UP
+               }}
+               onClick={login ? handleLogin : handleRegister }
+               > 
+               {
+                login  ? "Login" : "Sign-Up"
+               }
                </Button>
                <Typography variant="subtitle2"
                 fontSize={"1.3rem"}
                 alignSelf={"center"}
                
                 >
-                    Already have an account ? 
-                    <span  className="login-link">
-                        Login
+                    {
+                        login ? "Don`t have an account " : "Already have an account"
+                    }
+                    <span  className="login-link" onClick={toggleLogin}>
+                        {" "}
+                        {
+                            login ?"Sign-Up " :"Login"
+                        }
                     </span>
                </Typography>
             </Stack>
