@@ -1,9 +1,13 @@
-import { Stack, Typography } from "@mui/material";
+import { Link, Stack, Typography, useMediaQuery } from "@mui/material";
 import{FaRegHeart,FaRegComment,FaRetweet} from "react-icons/fa6";
 import{IoMdSend} from "react-icons/io"
 
 const PostTwo=()=>
 {
+    const _300 = useMediaQuery("(min-width:300px)");
+    const _400 = useMediaQuery("(min-width:400px)");
+    const _500 = useMediaQuery("(min-width:500px)");
+    const _700 = useMediaQuery("(min-width:700px)");
     return(
         <>
         
@@ -16,20 +20,22 @@ const PostTwo=()=>
                 
                 >
                     <Typography variant="h6"
-                    fontSize={"1rem"}
+                    fontSize={_300 ? "1rem" : "0.8rem"}
                     fontWeight={"bold"}>
                         nikhil_raj_7
                     </Typography>
+                    <Link  to={'/post/2'}>
                     <Typography variant="h5"
-                    fontSize={"1.2rem"}
+                    fontSize={_700 ? "1.2rem" : _400 ? "1rem" : _300 ? "0.9rem " : "0.8rem"}
                     >
                         Hi guys ! my self nikhil raj 
                     </Typography>
+                        </Link>
                 </Stack>
-                <img src="https://instagram.fbho1-1.fna.fbcdn.net/v/t51.82787-15/611290710_18552534856018497_4243418728669008518_n.jpg?stp=dst-jpg_e35_p480x480_tt6&_nc_cat=102&ig_cache_key=MzgwNTQxODE1MTc2OTk2Nzg4MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=uwPs3qXsZdoQ7kNvwGob3Md&_nc_oc=AdoDHZoe5RP8pT6zf86qrExxIJ6gwVw7rUIJc6t6uYN7Uu4SxRixlFmqcUuBYQ8BQSXeBfMnIsvw6GSwMsYQXNF0&_nc_ad=z-m&_nc_cid=2034&_nc_zt=23&_nc_ht=instagram.fbho1-1.fna&_nc_gid=OCT82IHhdsvi74gMHMMMCw&_nc_ss=7a32e&oh=00_Af2y5rkMYjvKXndDkHiRjcm0VsTpWEGmYn57LALasAVCFg&oe=69D59A8D" alt=""  loading="lazy"
-                width={"400px"}
+                <img src="https://images.alphacoders.com/183/thumb-1920-183401.jpg" alt=""  loading="lazy"
+                width={_700 ? "400px":_500 ? "350px" :_400 ? "250px": _300 ? "180px":"150px"}
                 height={"auto"}/>
-                <video src="/sexy.mp4"/>
+                
 
             </Stack>
             <Stack flexDirection={'column'}
@@ -37,10 +43,10 @@ const PostTwo=()=>
                 <Stack flexDirection={'row'}
                 gap={2}
                 m={1}>
-                    <FaRegHeart size={32}/>
-                    <FaRegComment size={32}/>
-                    <FaRetweet size={32}/>
-                    <IoMdSend size={32}/>
+                    <FaRegHeart size={_700 ? 32 :_300 ? 28 : 24}/>
+                    <FaRegComment size={_700 ? 32 :_300 ? 28 : 24}/>
+                    <FaRetweet size={_700 ? 32 :_300 ? 28 : 24}/>
+                    <IoMdSend size={_700 ? 32 :_300 ? 28 : 24}/>
                 </Stack>
                 <Stack
                 flexDirection={"row"}
@@ -51,10 +57,14 @@ const PostTwo=()=>
                 >
                     <Typography variant="capital"
                     color={'grayText'}
-                    fontSize={'1.2rem'}>2 likes</Typography>
+                    fontSize={_700 ? "1.1rem" : "1rem "}>
+                        2 likes
+                        </Typography>
                     <Typography variant="capital"
                     color={'grayText'}
-                    fontSize={'1.2rem'}>1 comments</Typography>
+                    fontSize={_700 ? "1.1rem" : "1rem "}>
+                        1 comments
+                        </Typography>
                 </Stack>
 
             </Stack>

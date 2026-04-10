@@ -1,12 +1,14 @@
-import { Stack } from "@mui/material";
+import { Grid, Stack, useMediaQuery } from "@mui/material";
 import Navbar from './Navbar';
 import { IoMenu } from "react-icons/io5"; 
 
 const Header=()=>
 {
+    const _700 =useMediaQuery("(min-width:700px)");
     return(
         <> 
-            <Stack flexDirection={'row'}
+           {
+            _700 ?  <Stack flexDirection={'row'}
             height={53}
             justifyContent={"space-around"}
             alignItems={'center'}
@@ -29,8 +31,36 @@ const Header=()=>
             height={96}  >
                     <Navbar/ >
             </Stack>
-           <IoMenu size={36}  className="image-icon"/>
-            </Stack>
+           <IoMenu size={36}  className="image-icon" color="gray"/>
+            </Stack> : (
+                <>
+                <Stack  position={'fixed'}
+                bottom={0}
+                justifyContent={"center"}
+                width={"100%"}
+                height={52}
+                p={1}
+                bgcolor={"aliceblue"}
+                zIndex={2}>
+                    <Navbar/>
+                </Stack>
+                <Grid container 
+                height={60}
+                justifyContent={"flex-end"}
+                alignContent={"center"}
+                p={1}>
+                    <Grid
+                    item xs={6}>
+                        <img src="/Threads-logo-white-bg.png" alt="" width={60}
+                        height={35}
+                        />
+
+                    </Grid>
+                    <IoMenu size={36}  className="image-icon" color="gray"/>
+                </Grid>
+                </>
+            
+            )}
         </>
     )               
 }

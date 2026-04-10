@@ -1,43 +1,49 @@
-import { Avatar, Badge, Stack, Box, Stepper, AvatarGroup } from "@mui/material";
+import { Avatar, Badge, Stack,  Stepper, AvatarGroup, useMediaQuery } from "@mui/material";
 
 const PostOne = () => {
+     const _700 = useMediaQuery("(min-width:700px)");
     return (
+        <>
         <Stack 
             flexDirection="column" 
             alignItems="center" 
             justifyContent="flex-start"
             height="100%"
-        >
+            >
             <Badge 
                 overlap="circular"
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                 badgeContent={
                     <Avatar 
-                        sx={{
-                            width: 16,
-                            height: 16,
-                            bgcolor: "green",
-                            border: "2px solid white",
-                            fontSize: "12px",
-                        }}
+                    alt="+"
+                    src=""
+                    sx={{
+                        width: _700 ? 20 : 14,
+                        height: _700 ? 20 : 14,
+                        bgcolor: "green",
+                        position:"relative",
+                        right:_700 ?  4 : 0,
+                        bottom:_700 ?  4 : 0,
+                        
+                    }}
                     >
-                        {" "}
-                        +{" "}
+                    {" "}
+                    +{" "}
                     </Avatar>
                 }
-            >
+                >
                 <Avatar 
                     alt="AJ" 
                     src="" 
-                    sx={{ width: 40, height: 40 }} 
-                />
+                    sx={{ width: _700 ? 40 :32, height: _700 ? 40 :32 }} 
+                    />
             </Badge>
             <Stack 
             flexDirection={"column"}
             alignItems={"center"}
             gap={2}
             height={"100%"}
-             >
+            >
                 <Stepper orientation={'vertical'}
                 activeStep={0}
                 sx={{
@@ -49,29 +55,24 @@ const PostOne = () => {
                 
                 ></Stepper>
                 <AvatarGroup 
-                // total={2}
+                total={3}
                 max={1}
                 sx={{
-                    '&.mui-root':{
-                        width:24,
-                        height:24,
-                        fontSize:12,
+                    '&.MuiAvtar-root':{
+                        width:_700 ?24 :16 ,
+                        height:_700 ? 24 :16 ,
+                        fontSize:_700 ? 12 : 8,
                     },
                 }}>
                     <Avatar src="" alt=""/>
-                    <Avatar src="" alt=""/>
-                    <Avatar src="" alt=""/>
-                    <Avatar src="" alt=""/>
-                    <Avatar src="" alt=""/>
-                    <Avatar src="" alt=""/>
-                    <Avatar src="" alt=""/>
-                    <Avatar src="" alt=""/>
+                    
                 </AvatarGroup>
 
             </Stack>
 
             
         </Stack>
+                    </>
     );
 };
 

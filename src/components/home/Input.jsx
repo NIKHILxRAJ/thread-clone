@@ -1,30 +1,41 @@
-import { Avatar, Button, Stack, Typography } from "@mui/material";
+import { Avatar, Button, Stack, Typography, useMediaQuery } from "@mui/material";
 
 const Input = () => {
+  const _700 = useMediaQuery("(min-width:700px)");
     return (
-        <div 
-            style={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                width: '70%',
-                margin: '40px auto',
-                padding: '20px',
-                // This is the most direct way to force a border in React
-                borderBottom: '2px solid #333333', 
-                minHeight: '60px'
-            }}
-        >
-            <Stack flexDirection="row" alignItems="center" gap={2}>
+      <>
+       {_700 ? ( <Stack
+            flexDirection={"row"}
+            alignItems={"center"}
+            width={"70%"}
+            height={28}
+            justifyContent={"space-between"}
+            p={3}
+            borderBottom={"2px solid gray"}
+            my={5}
+            mx={"auto"}
+            >
+            <Stack flexdirection={"row"} alignItems={"center"} gap={2}>
                 <Avatar src="" alt="AJ" />
-                <Typography color="gray">Start a thread....</Typography>
+                <Typography color={"GrayText"}> Start a thread...</Typography>
             </Stack>
 
-            <Button sx={{ color: "gray", fontWeight: "bold" }}>
+            <Button
+            size="medium"
+            sx={{
+              bgcolor: "gray",
+              color: "aliceblue",
+              ":hover": {
+                bgcolor: "black",
+                cursor: "pointer",
+              },
+            }}
+          >
                 POST
             </Button>
-        </div>
+        </Stack>
+        ):null}
+          </>
     );
 };
 

@@ -1,39 +1,43 @@
-import { Avatar, Button, Chip, Stack, Typography, Box } from "@mui/material";
+import { Avatar, Button, Chip, Stack, Typography, Box, useMediaQuery } from "@mui/material";
 import { FaInstagram } from "react-icons/fa6";
 import { Link, Outlet } from "react-router-dom";
 
 const ProfileLayout = () => {
+    const _300 =useMediaQuery("(min-width:300px)");
+    const _500 =useMediaQuery("(min-width:500px)");
+    const _700 =useMediaQuery("(min-width:700px)");
     return (
         <>
             <Stack
-                flexDirection={'column'}
-                gap={2}
-                p={2}
-                m={2}
-                width={"800px"}
-                mx={'auto'}
-            >
+        flexDirection={"column"}
+        gap={2}
+        p={2}
+        m={2}
+        width={_700 ? "800px" : "90%"}
+        mx={"auto"}
+      >
                 <Stack
-                    flexDirection={'row'}
-                    justifyContent={"space-between"}
-                    alignItems={"center"}
-                >
-                    <Stack flexDirection={'column'} gap={1}>
-                        <Typography
-                            variant="h2"
-                            fontWeight={'bold'}
-                            fontSize={"2rem"}
-                        >
+          flexDirection={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
+        
+                     <Stack flexDirection={"column"} gap={1}>
+            <Typography
+              variant="h2"
+              fontWeight={"bold"}
+              fontSize={_300 ? "2rem" : "1rem"}
+            >
                             Nikhil_raaj_7
                         </Typography>
                         <Stack flexDirection={"row"} alignItems={"center"} gap={1}>
-                            <Typography variant="h2" fontSize={"1rem"}>
+                            <Typography variant="h2" fontSize={_300 ? "1rem" : "0.8rem"}>
                                 Nikhil_raaj_7
                             </Typography>
                             <Chip
                                 label='threads.net'
                                 size="small"
-                                sx={{ fontSize: "0.8rem" }}
+                                sx={{ fontSize: _300 ? "0.8rem" : "0.6rem" }}
                             />
                         </Stack>
                     </Stack>
@@ -41,7 +45,9 @@ const ProfileLayout = () => {
                     <Avatar
                         src=""
                         alt=""
-                        sx={{ width: 60, height: 60 }}
+                        sx={{ width: _300 ? 60 : 40, 
+                            height: _300 ? 60 : 40 
+                        }}
                     />
                 </Stack>
 
@@ -55,7 +61,7 @@ const ProfileLayout = () => {
                     <Typography variant="subtitle2" color="gray">
                         19 followers
                     </Typography>
-                    <FaInstagram size={40} />
+                    <FaInstagram size={_300 ? 40 : 24} />
                 </Stack>
             </Stack>
 
@@ -64,7 +70,8 @@ const ProfileLayout = () => {
                     size="large"
                     sx={{
                         color: "black",
-                        width: '100%',
+                        width: _700 ? "800px" : "90%",
+                        mx:"auto",
                         textAlign: 'center',
                         border: '1px solid gray',
                         borderRadius: '10px',
@@ -82,8 +89,8 @@ const ProfileLayout = () => {
                 my={5}
                 pb={2}
                 borderBottom={'2px solid gray'}
-                fontSize={'1.2rem'}
-                width={'800px'}
+                fontSize={_500 ? "1.2rem" : _300 ? "1.1rem" : "0.9rem"}
+                width={_700 ? "800px" : "90%"}
                 mx={'auto'}
             >
                 <Link
