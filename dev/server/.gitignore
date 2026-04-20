@@ -1,0 +1,11 @@
+# Ignore the massive dependency folder
+node_modules/
+
+# Ignore your private database credentials and secrets
+.env
+
+# Ignore logs
+npm-debug.log*
+
+# Ignore Mac-specific system files
+.DS_Store
