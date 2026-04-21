@@ -1,20 +1,17 @@
 const express = require("express");
-const dotenv = require("dotenv");
-const { connect } = require("mongoose");
+const dotenv = require("dotenv").config();
 const connectDB = require("./config/db");
 
 
-dotenv.config();
+const router = require("./routes"); 
 
 const app = express();
 connectDB();
 
-app.get('/', (req, res) => {
-   res.send("Good Boy" );
-});
 
-const port = process.env.PORT;
+app.use("/api", router); 
 
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
    console.log(`App is listening on Port :${port}`);
 });

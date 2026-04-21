@@ -35,9 +35,9 @@ const userSchema = new mongoose.Schema(
         ref: "user",
       },
     ],
-    threads: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
-    replies: [{ type: mongoose.Schema.Types.ObjectId, ref: "commnet " }],
-    threads: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
+    threads: [{ type: mongoose.Schema.Types.ObjectId, ref: "post" }],
+    replies: [{ type: mongoose.Schema.Types.ObjectId, ref: "comment " }],
+    threads: [{ type: mongoose.Schema.Types.ObjectId, ref: "post" }],
   },
   { timestamps: true },
 );
