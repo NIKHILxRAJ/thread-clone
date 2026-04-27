@@ -9,6 +9,8 @@ const app = express();
 connectDB();
 
 
+app.use(express.json());
+
 app.use("/api", router); 
 
 const port = process.env.PORT || 8080;
