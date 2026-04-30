@@ -50,6 +50,10 @@ const Register=()=>
             backgroundRepeat:"no-repeat"
                } : null }
             > 
+
+
+
+            
             <Stack flexDirection={'column'}width={_700 ? "40%" : "90%" }gap={2}mt={_700 ? 20 :0}>
                 
 
