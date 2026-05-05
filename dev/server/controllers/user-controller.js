@@ -52,3 +52,49 @@ exports.signin = async (req, res) => {
     });
   }
 };
+
+
+
+exports.login = async(req,res)=>
+{
+  try{
+    const {email,password}=req.body;
+    if(!email||!password)
+    {
+      return res.status(400).json({msg:"Email and are required !"});
+    }
+    const userExists = await User.findOne({email});
+    if(!userExists)
+    {
+      return res.status(400).json({msg:"please Signin first ! "});
+    }
+    const passwordMatch = await bcrypt.compare(password,userExists.password);
+
+    if(!passwordMatch)
+    {
+      return res.status(400).json({msg:"Incorrect credentials ! "});
+    }
+    const accesToken = jwt.sign(
+      {
+        token:userExists._id },
+        process.env.JWT_SECRET,
+        {expiresIn:"30d"}
+    );
+    if(!accesToken)
+    {
+      res.status(400).json({msg:"Token not generated in login ! "});
+    }
+    res.cookie('token',accesToken,{
+      maxAge:1000*60*60*24*30,
+      httpOnly:true,
+      secure:true,
+      sameSite:"none",
+    });
+    res.status(200).json({msg:"User logged in successfully"});
+  }
+  catch (err){
+    res.status(400).json({msg:'Error in login ! ',err:err.message})
+
+  }
+   
+}
