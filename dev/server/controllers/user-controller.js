@@ -117,8 +117,57 @@ exports.userDetails = async (req, res) => {
           { path: "admin" },
         ],
       });
-    res.ststus(200).json({ msg: "User Details Fetched ! " });
+    res.ststus(200).json({ msg: "User Details Fetched ! " ,user});
   } catch (err) {
     res.status(400).json({ msg: "Error in userDetails ! ", err: err.message });
   }
 };
+
+
+exports.followUser = async(req,res)=>
+{
+  try{
+    const {id} = req.params;
+    if(!id)
+    {
+       return res.status(400).json({msg:"Id is required !"});
+    }
+    const userExists = await User.findById(id);
+    if(!userExists)
+    {
+      return res.status(400).json({msg:"User don`t Exist !"});
+
+    }
+    if(userExists.followers.includes(req.user._id)){
+      await User.findByIdAndUpdate(
+        userExists._id,
+        {
+        $pull:{followers:req.user._id},
+        },
+      {
+        new :true}
+      );
+      return res.status(201).json({msg:`unfollowed ${userExists.userName}`});
+    }
+    await User.findByIdAndUpdate(
+        userExists._id,
+        {
+        $push:{followers:req.user._id},
+        },
+      {
+        new :true}
+      );
+      return res.status(201).json({msg:`Following ${userExists.userName}`});
+    
+
+  }
+  catch(err)
+  {
+    res.status(400).json({msg:"Error in followers !",err:err.message});
+  }
+}
+
+
+
+
+
